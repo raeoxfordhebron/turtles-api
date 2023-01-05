@@ -13,6 +13,13 @@ const app = express()
 
 
 /////////////////////////
+// MIDDLEWARE
+/////////////////////////
+
+app.use(express.json())
+
+
+/////////////////////////
 // The Data
 /////////////////////////
 const turtles = [
@@ -41,7 +48,10 @@ app.get("/turtles", (req, res) => {
 })
 
 // Create Route
-
+app.post("/turtles", (req, res) => {
+    turtles.push(req.body)
+    res.json(turtles)
+})
 
 // Show Route
 app.get("/turtles/:index", (req, res) => {
