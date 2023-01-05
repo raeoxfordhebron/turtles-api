@@ -47,6 +47,12 @@ app.get("/turtles", (req, res) => {
     res.json(turtles)
 })
 
+// Delete Route
+app.delete("/turtles/:index", (req, res) => {
+    turtles.splice(req.params.index, 1)
+    res.json(turtles)
+})
+
 // Update Route
 app.put("/turtles/:index", (req, res) => {
     turtles[req.params.index] = req.body
